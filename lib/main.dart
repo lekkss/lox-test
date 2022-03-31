@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:loxtest/ui/widgets/screens/splash_screen.dart';
 // import 'package:loxtest/screens/home.dart';
-import 'package:loxtest/screens/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
