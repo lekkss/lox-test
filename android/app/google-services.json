@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "710880848160",
+    "project_id": "loxtest-de8b6",
+    "storage_bucket": "loxtest-de8b6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:710880848160:android:9f0875c81f131ff053cf45",
+        "android_client_info": {
+          "package_name": "com.example.loxtest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "710880848160-5ki7p67oamt6l89m8064old80srb6iut.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDsS7vbyymYiaLlsKkdrn1_XNmkN9cJZs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "710880848160-5ki7p67oamt6l89m8064old80srb6iut.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
