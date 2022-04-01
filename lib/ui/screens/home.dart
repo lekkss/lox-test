@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loxtest/ui/screens/message_list.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -14,6 +15,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text("Welcome User"),
       ),
+      body: MessageList(),
     );
   }
 }
