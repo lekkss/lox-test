@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:loxtest/services/user_dao.dart';
-import 'package:loxtest/ui/screens/message_list.dart';
 import 'package:loxtest/ui/widgets/app_buttons.dart';
 import 'package:loxtest/ui/widgets/app_large_text.dart';
 import 'package:loxtest/ui/widgets/app_text.dart';
@@ -59,6 +58,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       if (value!.isEmpty) {
                         return 'Enter something';
                       }
+                      return null;
                     },
                     decoration: InputDecoration(
                       hintText: ' Name',
@@ -96,6 +96,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       if (value!.isEmpty) {
                         return 'Enter something';
                       }
+                      return null;
                     },
                     decoration: InputDecoration(
                       hintText: ' Email',
@@ -133,6 +134,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       if (value!.isEmpty) {
                         return 'Enter something';
                       }
+                      return null;
                     },
                     decoration: InputDecoration(
                       labelText: 'Password',
@@ -198,11 +200,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       if (_formKey.currentState!.validate()) {
                         userDao.signup(
                             _emailController.text, _passwordController.text);
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (BuildContext context) => MessageList(),
-                          ),
-                        );
                       } else {
                         debugPrint("not ok");
                       }

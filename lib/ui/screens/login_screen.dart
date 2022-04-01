@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:loxtest/services/user_dao.dart';
-import 'package:loxtest/ui/screens/message_list.dart';
 import 'package:loxtest/ui/widgets/app_buttons.dart';
 import 'package:loxtest/ui/widgets/app_large_text.dart';
 import 'package:loxtest/ui/widgets/app_text.dart';
@@ -47,6 +46,7 @@ class _LogInScreenState extends State<LogInScreen> {
                     onSaved: (value) {
                       user['email'] = value!;
                     },
+                    // ignore: body_might_complete_normally_nullable
                     validator: (value) {
                       if (value!.isEmpty) {
                         return 'Enter something';
@@ -88,6 +88,7 @@ class _LogInScreenState extends State<LogInScreen> {
                       if (value!.isEmpty) {
                         return 'Enter something';
                       }
+                      return null;
                     },
                     decoration: InputDecoration(
                       labelText: 'Password',
@@ -153,11 +154,11 @@ class _LogInScreenState extends State<LogInScreen> {
                       if (_formKey.currentState!.validate()) {
                         userDao.login(
                             _emailController.text, _passwordController.text);
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (BuildContext context) => MessageList(),
-                          ),
-                        );
+                        // Navigator.of(context).push(
+                        //   MaterialPageRoute(
+                        //     builder: (BuildContext context) => MessageList(),
+                        //   ),
+                        // );
                       } else {
                         debugPrint("not ok");
                       }

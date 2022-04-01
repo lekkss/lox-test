@@ -10,7 +10,7 @@ import 'package:provider/provider.dart';
 
 // ignore: must_be_immutable
 class MessageList extends StatefulWidget {
-  MessageList({
+  const MessageList({
     Key? key,
   }) : super(key: key);
 
@@ -36,38 +36,26 @@ class MessageListState extends State<MessageList> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: const Color(0XFFEBEBEB),
-        leading: const Padding(
-          padding: EdgeInsets.all(8.0),
-          child: CircleAvatar(
-            radius: 30,
-          ),
-        ),
+
+        iconTheme: const IconThemeData(color: Colors.black),
+        // leading: const Padding(
+        //   padding: EdgeInsets.all(8.0),
+        //   child: CircleAvatar(
+        //     radius: 30,
+        //   ),
+        // ),
         title: Text(
-          "",
+          // email!,
+          "Community",
           style: const TextStyle(
             color: Colors.black,
             fontSize: 13,
           ),
         ),
         actions: [
-          // Icon(
-          //   Icons.search,
-          //   color: Colors.black,
-          //   size: 18,
-          // ),
-          // Icon(
-          //   Icons.more_vert_rounded,
-          //   color: Colors.black,
-          //   size: 18,
-          // ),
           IconButton(
             onPressed: () {
               userDao.logout();
-              // Navigator.of(context).push(
-              //   MaterialPageRoute(
-              //     builder: (BuildContext context) => const LoginScreen(),
-              //   ),
-              // );
             },
             icon: const Icon(
               Icons.logout,
@@ -84,36 +72,6 @@ class MessageListState extends State<MessageList> {
         padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 16.0),
         child: Column(
           children: [
-            // widget.isBlocked
-            //     ? Container(
-            //         width: double.infinity,
-            //         color: const Color(0XFFFFF9F4),
-            //         child: Padding(
-            //           padding: const EdgeInsets.all(8.0),
-            //           child: Row(
-            //             children: [
-            //               const Text(
-            //                 "⚠️ You have blocked this user!!",
-            //                 textAlign: TextAlign.center,
-            //                 style: TextStyle(color: Colors.red),
-            //               ),
-            //               const Spacer(),
-            //               IconButton(
-            //                 onPressed: () {
-            //                   setState(() {
-            //                     widget.isBlocked = false;
-            //                   });
-            //                 },
-            //                 icon: const Icon(
-            //                   Icons.cancel,
-            //                   color: Colors.red,
-            //                 ),
-            //               )
-            //             ],
-            //           ),
-            //         ),
-            //       )
-            //     : Container(),
             _getMessageList(messageDao),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
