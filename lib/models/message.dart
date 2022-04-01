@@ -5,12 +5,14 @@ class Message {
   final String text;
   final DateTime date;
   final String? email;
+  final String? profileImage;
   DocumentReference? reference;
 
   Message({
     this.userId,
     required this.text,
     required this.date,
+    this.profileImage,
     this.email,
     this.reference,
   });
@@ -21,6 +23,7 @@ class Message {
       text: json['text'] as String,
       date: DateTime.parse(json['date'] as String),
       email: json['email'] as String?,
+      profileImage: json['profileImage'] as String?,
     );
   }
 
@@ -28,6 +31,7 @@ class Message {
         'date': date.toString(),
         'text': text,
         'email': email,
+        'profileImage': profileImage,
         'userId': userId,
       };
 

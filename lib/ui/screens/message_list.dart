@@ -44,10 +44,10 @@ class MessageListState extends State<MessageList> {
         //     radius: 30,
         //   ),
         // ),
-        title: Text(
+        title: const Text(
           // email!,
           "Community",
-          style: const TextStyle(
+          style: TextStyle(
             color: Colors.black,
             fontSize: 13,
           ),
@@ -56,6 +56,7 @@ class MessageListState extends State<MessageList> {
           IconButton(
             onPressed: () {
               userDao.logout();
+              Navigator.pop(context);
             },
             icon: const Icon(
               Icons.logout,

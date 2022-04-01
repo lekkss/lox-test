@@ -25,14 +25,6 @@ class UserDao extends ChangeNotifier {
       notifyListeners();
     } on FirebaseAuthException catch (e) {
       print('Failed with error code: ${e.code}');
-      //   if (e.code == 'weak-password') {
-      //     debugPrint('The password provided is too weak.');
-      //   } else if (e.code == 'email-already-in-use') {
-      //     debugPrint('The account already exists for that email.');
-      //   }
-      // } catch (e) {
-      //   debugPrint(e.toString());
-      // }
     }
   }
 
