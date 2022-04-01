@@ -43,41 +43,41 @@ class MessageListState extends State<MessageList> {
           ),
         ),
         title: Text(
-          email!,
+          "",
           style: const TextStyle(
             color: Colors.black,
             fontSize: 13,
           ),
         ),
-        actions: const [
-          Icon(
-            Icons.search,
-            color: Colors.black,
-            size: 18,
+        actions: [
+          // Icon(
+          //   Icons.search,
+          //   color: Colors.black,
+          //   size: 18,
+          // ),
+          // Icon(
+          //   Icons.more_vert_rounded,
+          //   color: Colors.black,
+          //   size: 18,
+          // ),
+          IconButton(
+            onPressed: () {
+              userDao.logout();
+              // Navigator.of(context).push(
+              //   MaterialPageRoute(
+              //     builder: (BuildContext context) => const LoginScreen(),
+              //   ),
+              // );
+            },
+            icon: const Icon(
+              Icons.logout,
+              color: Colors.black,
+              size: 18,
+            ),
           ),
-          Icon(
-            Icons.more_vert_rounded,
-            color: Colors.black,
-            size: 18,
-          ),
-          SizedBox(
+          const SizedBox(
             width: 20,
-          )
-          // IconButton(
-          //   onPressed: () {
-          //     userDao.logout();
-          //     // Navigator.of(context).push(
-          //     //   MaterialPageRoute(
-          //     //     builder: (BuildContext context) => const LoginScreen(),
-          //     //   ),
-          //     // );
-          //   },
-          //   icon: const Icon(
-          //     Icons.logout,
-          //     color: Colors.black,
-          //     size: 18,
-          //   ),
-          // )
+          ),
         ],
       ),
       body: Padding(

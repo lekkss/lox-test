@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:loxtest/services/user_dao.dart';
+import 'package:loxtest/ui/screens/message_list.dart';
 import 'package:loxtest/ui/widgets/app_buttons.dart';
 import 'package:loxtest/ui/widgets/app_large_text.dart';
 import 'package:loxtest/ui/widgets/app_text.dart';
 import 'package:loxtest/ui/screens/sign_up_screen.dart';
 import 'package:loxtest/ui/widgets/text_link.dart';
+import 'package:provider/provider.dart';
 
 class LogInScreen extends StatefulWidget {
   const LogInScreen({Key? key}) : super(key: key);
@@ -20,6 +23,7 @@ class _LogInScreenState extends State<LogInScreen> {
   var user = {};
   @override
   Widget build(BuildContext context) {
+    final userDao = Provider.of<UserDao>(context, listen: false);
     return Scaffold(
         body: SingleChildScrollView(
       child: Column(
@@ -146,6 +150,17 @@ class _LogInScreenState extends State<LogInScreen> {
                     backgroundColor: Colors.red,
                     borderColor: Colors.red,
                     onPressed: () {
+                      if (_formKey.currentState!.validate()) {
+                        userDao.login(
+                            _emailController.text, _passwordController.text);
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (BuildContext context) => MessageList(),
+                          ),
+                        );
+                      } else {
+                        debugPrint("not ok");
+                      }
                       // userDao.signup(
                       //     _emailController.text, _passwordController.text);
                       // if (_formKey.currentState!.validate()) {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:loxtest/services/user_dao.dart';
+import 'package:loxtest/ui/screens/message_list.dart';
 import 'package:loxtest/ui/widgets/app_buttons.dart';
 import 'package:loxtest/ui/widgets/app_large_text.dart';
 import 'package:loxtest/ui/widgets/app_text.dart';
@@ -172,14 +173,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         color: Colors.red,
                         size: 16,
                         onPressed: () {
-                          userDao.signup(
-                              _emailController.text, _passwordController.text);
-                          // Navigator.of(context).push(
-                          //   MaterialPageRoute(
-                          //     builder: (BuildContext context) =>
-                          //         const LogInScreen(),
-                          //   ),
-                          // );
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (BuildContext context) =>
+                                  const LogInScreen(),
+                            ),
+                          );
                         },
                       ),
                     ],
@@ -196,18 +195,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     backgroundColor: Colors.red,
                     borderColor: Colors.red,
                     onPressed: () {
-                      // userDao.signup(
-                      //     _emailController.text, _passwordController.text);
-                      // if (_formKey.currentState!.validate()) {
-                      //   Navigator.of(context).push(
-                      //     MaterialPageRoute(
-                      //       builder: (BuildContext context) =>
-                      //           const ChatScreen(),
-                      //     ),
-                      //   );
-                      // } else {
-                      //   debugPrint("not ok");
-                      // }
+                      if (_formKey.currentState!.validate()) {
+                        userDao.signup(
+                            _emailController.text, _passwordController.text);
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (BuildContext context) => MessageList(),
+                          ),
+                        );
+                      } else {
+                        debugPrint("not ok");
+                      }
                     },
                   ),
                 ],
