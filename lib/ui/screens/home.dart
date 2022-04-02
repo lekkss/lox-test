@@ -37,12 +37,21 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(
                 height: 20,
               ),
-              FirebaseAuth.instance.currentUser!.photoURL != null
-                  ? ClipRRect(
-                      borderRadius: BorderRadius.circular(100),
-                      child: Image.network(
-                        FirebaseAuth.instance.currentUser!.photoURL!,
-                        width: 100,
+              FirebaseAuth.instance.currentUser!.photoURL != null ||
+                      file != null
+                  ? CircleAvatar(
+                      radius: 50,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(200),
+                        child: file != null
+                            ? Image.file(
+                                file!,
+                                width: 60,
+                              )
+                            : Image.network(
+                                FirebaseAuth.instance.currentUser!.photoURL!,
+                                width: 100,
+                              ),
                       ),
                     )
                   : CircleAvatar(
@@ -51,20 +60,22 @@ class _HomePageState extends State<HomePage> {
                         FirebaseAuth.instance.currentUser!.email!
                             .substring(0, 2)
                             .toUpperCase(),
-                      ),
-                    ),
+                      )),
               const SizedBox(
                 height: 20,
               ),
               Column(
                 children: [
-                  TextLink(
-                    "Edit",
-                    color: Colors.purpleAccent,
-                    size: 12,
-                    onPressed: () {
-                      chooseImage();
-                    },
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: TextLink(
+                      "Edit",
+                      color: Colors.purpleAccent,
+                      size: 18,
+                      onPressed: () {
+                        chooseImage();
+                      },
+                    ),
                   ),
                   const SizedBox(
                     height: 10,

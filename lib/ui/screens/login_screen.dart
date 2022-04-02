@@ -42,6 +42,7 @@ class _LogInScreenState extends State<LogInScreen> {
               child: Column(
                 children: [
                   TextFormField(
+                    keyboardType: TextInputType.emailAddress,
                     controller: _emailController,
                     onSaved: (value) {
                       user['email'] = value!;
