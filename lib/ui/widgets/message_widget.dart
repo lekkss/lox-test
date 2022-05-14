@@ -84,7 +84,7 @@ class _MessageWidgetState extends State<MessageWidget> {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     widget.isMe &&
@@ -124,7 +124,7 @@ class _MessageWidgetState extends State<MessageWidget> {
                                   .toUpperCase(),
                             ),
                           ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     Container(

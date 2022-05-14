@@ -1,8 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:loxtest/class/test.dart';
 import 'package:loxtest/services/message_dao.dart';
 import 'package:loxtest/services/user_dao.dart';
-import 'package:loxtest/ui/screens/splash_screen.dart';
+// import 'package:loxtest/ui/screens/splash_screen.dart';
 import 'package:provider/provider.dart';
 // import 'package:loxtest/screens/home.dart';
 
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.purple,
         ),
-        home: const SplashScreen(),
+        home: const WidgetDecoration(),
       ),
     );
   }

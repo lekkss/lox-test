@@ -108,7 +108,7 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     const CircleAvatar(
                       radius: 50,
-                      child: const Icon(Icons.people),
+                      child: Icon(Icons.people),
                     ),
                     const SizedBox(
                       height: 20,
@@ -139,7 +139,7 @@ class _HomePageState extends State<HomePage> {
 
   chooseImage() async {
     XFile? xfile = await ImagePicker().pickImage(source: ImageSource.gallery);
-    print("File Path" + xfile!.path);
+    debugPrint("File Path" + xfile!.path);
 
     setState(() {
       file = File(xfile.path);
@@ -150,10 +150,10 @@ class _HomePageState extends State<HomePage> {
     Map<String, dynamic> map = {};
     if (file != null) {
       String url = await uploadImage();
-      print("Url $url");
+      debugPrint("Url $url");
       map['profileImage'] = url;
       await FirebaseAuth.instance.currentUser!.updatePhotoURL(url);
-      print(FirebaseAuth.instance.currentUser!.photoURL);
+      debugPrint(FirebaseAuth.instance.currentUser!.photoURL);
     }
 
     // await FirebaseFirestore.instance

@@ -205,7 +205,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         debugPrint("ok");
                         Navigator.of(context).pushReplacement(
                           MaterialPageRoute(
-                              builder: (BuildContext context) => HomePage()),
+                              builder: (BuildContext context) =>
+                                  const HomePage()),
                         );
                       } else {
                         debugPrint("not ok");
